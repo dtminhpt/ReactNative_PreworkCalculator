@@ -20,25 +20,26 @@ export default class Settings extends Component {
   }
 
   // set data to AsyncStorage
-  async setSceneTransition(screne){
+  async setSceneTransition(scene){
     try{
-      await AsyncStorage.setItem('SCENE_SELECTED', screne);
+      await AsyncStorage.setItem('SCENE_SELECTED', scene);
       this.setState({
-        screnTransition : screne
+        sceneTransition : scene
       })
     }catch(error){
+      console.log("Hmm, something when wrong when set data..." + error);
     }
   }
 
   // get data to AsyncStorage
   async getSceneTransition(){
     try{
-      let screnTransitionValue = await AsyncStorage.getItem("SCENE_SELECTED");
+      let sceneTransitionValue = await AsyncStorage.getItem("SCENE_SELECTED");
       this.setState({
-        screnTransition : screnTransitionValue
+        sceneTransition : sceneTransitionValue
       });
     }catch(error){
-      console.log("Hmm, something when wrong.." + error);
+      console.log("Hmm, something when wrong when get data..." + error);
     }
   }
 
@@ -66,7 +67,7 @@ export default class Settings extends Component {
         <View>
           <Text style={{fontSize:25}}>Scene Transitions</Text>
           <Picker
-           selectedValue={this.state.screnTransition}
+           selectedValue={this.state.sceneTransition}
             onValueChange={(scene) => this.setSelectSceneTransition(scene)}>
             <Picker.Item label="FloatFromRight" value="FloatFromRight" />
             <Picker.Item label="FloatFromLeft" value="FloatFromLeft" />
