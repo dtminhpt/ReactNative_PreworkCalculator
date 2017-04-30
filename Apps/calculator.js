@@ -19,9 +19,10 @@ export default class Cal extends Component {
     };
   }
 
-  handleSegmentChange(index){
+  handleSegmentChange(index) {
     this.setState({
-      segmentSelectedIndex: index
+      ...this.state,
+      segmentSelectedIndex: index,
     });
 
     this.handleBillAmountChange(this.state.billAmount, index);
@@ -80,13 +81,11 @@ export default class Cal extends Component {
           <Text>Tip amount: 0</Text>
         </View>
 
-        <View>
-          <SegmentedControlTab
-            segmentSelectedIndex={this.state.selected}
-            values={this.segmentValues()}
-            onTabPress= {index => this.handleSegmentChange(index)}
-            />
-        </View>
+        <SegmentedControlTab style={{marginTop:100}}
+          values={this.segmentValues()}
+          segmentSelectedIndex={2}//{this.state.segmentSelectedIndex}
+          onTabPress= {index => this.handleSegmentChange(index)}
+          />
 
         <View>
           <Text>Bill input: {this.state.billAmount} </Text>
