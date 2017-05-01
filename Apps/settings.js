@@ -8,8 +8,10 @@ import {
   TextInput,
   View,
   Navigator,
+  TouchableOpacity,
   TouchableHighlight,
-  Picker
+  Picker,
+  AsyncStorage
 } from 'react-native';
 
 export default class Settings extends Component {

@@ -6,6 +6,8 @@ import {
   Text,
   TextInput,
   View,
+  Navigator,
+  TouchableOpacity,
 } from 'react-native';
 
 export default class Calculator extends Component {
@@ -57,14 +59,6 @@ export default class Calculator extends Component {
     return(
       <View style={styles.container}>
         <View>
-          <Text></Text>
-        </View>
-
-        <View>
-          <Text></Text>
-        </View>
-
-        <View>
           <Text style={styles.textTitle}>Tip Calculator</Text>
         </View>
 
@@ -84,7 +78,7 @@ export default class Calculator extends Component {
 
         <SegmentedControlTab style={{marginTop:100}}
           values={this.segmentValues()}
-          segmentSelectedIndex={2}//{this.state.segmentSelectedIndex}
+          segmentSelectedIndex={this.state.segmentSelectedIndex}
           onTabPress= {index => this.handleSegmentChange(index)}
           />
 
