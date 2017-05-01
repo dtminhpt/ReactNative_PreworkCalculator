@@ -78,7 +78,7 @@ export default class Calculator extends Component {
         </View>
 
         <View>
-          <Text>Tip amount: 0</Text>
+          <Text>Tip amount: {this.state.tipAmount}</Text>
         </View>
 
         <SegmentedControlTab style={{marginTop:100}}
@@ -88,13 +88,21 @@ export default class Calculator extends Component {
           />
 
         <View>
-          <Text>Bill input: {this.state.billAmount} </Text>
-          <Text>Tip amount: {this.state.tipAmount} </Text>
-          <Text>Segment control: {this.segmentValues()[this.state.segmentSelectedIndex]} </Text>
+          <Text style={styles.resultText}>
+            Bill amount: {this.state.billAmount}
+          </Text>
+          <Text style={styles.resultText}>
+            Tip amount: {this.state.tipAmount}
+          </Text>
+          <Text style={styles.resultText}>
+            Percent: {parseFloat(this.segmentValues()[this.state.segmentSelectedIndex])/100}
+          </Text>
         </View>
 
         <View>
-          <Text>Result: {this.state.result} </Text>
+          <Text style={styles.finalResult}>
+            Result: {this.state.result}
+          </Text>
         </View>
       </View>
     );
@@ -111,13 +119,26 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontWeight:'bold',
   },
+  resultText:{
+    textAlign:'left',
+    color: '#333333',
+    marginBottom: 5,
+    fontSize:12
+  },
+  finalResult: {
+    textAlign:'left',
+    color: 'black',
+    marginTop:30,
+    fontWeight:'bold',
+    fontSize: 16,
+  },
   textBillInput:{
     flex:3,
     padding: 5,
     height: 30,
     borderColor: '#cccccc',
     color:'black',
-    borderWidth: 1,
+    borderWidth: 2,
   }
 });
 
