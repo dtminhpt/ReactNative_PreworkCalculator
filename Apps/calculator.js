@@ -55,7 +55,7 @@ export default class Calculator extends Component {
 
   render() {
     return(
-      <View>
+      <View style={styles.container}>
         <View>
           <Text></Text>
         </View>
@@ -69,7 +69,7 @@ export default class Calculator extends Component {
         </View>
 
         <View style = {{flexDirection:'row',alignItems: 'center',marginBottom: 8}}>
-          <Text style = {{flex:1}}>Bill Amount</Text>
+          <Text style = {{fontSize:15, flex:1}}>Bill Amount</Text>
           <TextInput
             onChangeText={(billAmount) => this.handleBillAmountChange(billAmount)}
             keyboardType='numeric'
@@ -77,8 +77,9 @@ export default class Calculator extends Component {
           />
         </View>
 
-        <View>
-          <Text>Tip amount: {this.state.tipAmount}</Text>
+        <View style={{flexDirection:'row', alignItems: 'center', marginBottom: 50}}>
+          <Text style={{fontSize:15, flex:1}}>Tip amount</Text>
+          <Text style={{textAlign:'left',flex:3}}>{this.state.tipAmount}</Text>
         </View>
 
         <SegmentedControlTab style={{marginTop:100}}
@@ -87,7 +88,7 @@ export default class Calculator extends Component {
           onTabPress= {index => this.handleSegmentChange(index)}
           />
 
-        <View>
+        <View style={{flexDirection:'column', marginTop:30}}>
           <Text style={styles.resultText}>
             Bill amount: {this.state.billAmount}
           </Text>
@@ -111,6 +112,12 @@ export default class Calculator extends Component {
 }
 //module.exports = Cal
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 20
+  },
   textTitle:{
     color:'black',
     fontSize:30,
