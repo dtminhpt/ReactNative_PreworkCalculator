@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-export default class Cal extends Component {
+export default class Calculator extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,12 +68,12 @@ export default class Cal extends Component {
           <Text>Tip Calculator</Text>
         </View>
 
-        <View>
-          <Text>Bill Amount</Text>
+        <View style = {{flexDirection:'row',alignItems: 'center',marginBottom: 8}}>
+          <Text style = {{flex:1}}>Bill Amount</Text>
           <TextInput
             onChangeText={(billAmount) => this.handleBillAmountChange(billAmount)}
-            style={{height:20, width:300}}
             keyboardType='numeric'
+            style={styles.textBillInput}
           />
         </View>
 
@@ -101,5 +101,15 @@ export default class Cal extends Component {
   }
 
 }
-module.exports = Cal
+//module.exports = Cal
+const styles = StyleSheet.create({
+  textBillInput:{
+    flex:3,
+    padding: 5,
+    height: 30,
+    borderColor: '#cccccc',
+    color:'black',
+    borderWidth: 1,
+  }
+});
 
