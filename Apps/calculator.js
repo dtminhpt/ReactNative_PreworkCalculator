@@ -65,7 +65,7 @@ export default class Calculator extends Component {
         </View>
 
         <View>
-          <Text>Tip Calculator</Text>
+          <Text style={styles.textTitle}>Tip Calculator</Text>
         </View>
 
         <View style = {{flexDirection:'row',alignItems: 'center',marginBottom: 8}}>
@@ -103,6 +103,14 @@ export default class Calculator extends Component {
 }
 //module.exports = Cal
 const styles = StyleSheet.create({
+  textTitle:{
+    color:'black',
+    fontSize:30,
+    marginTop:50,
+    marginBottom: 30,
+    textAlign:'center',
+    fontWeight:'bold',
+  },
   textBillInput:{
     flex:3,
     padding: 5,
