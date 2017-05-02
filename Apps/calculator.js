@@ -7,7 +7,7 @@ import {
   TextInput,
   View,
   Navigator,
-  TouchableOpacity,
+  TouchableOpacity
 } from 'react-native';
 
 export default class Calculator extends Component {
@@ -71,16 +71,18 @@ export default class Calculator extends Component {
           />
         </View>
 
-        <View style={{flexDirection:'row', alignItems: 'center', marginBottom: 50}}>
+        <View style={{flexDirection:'row', alignItems: 'center', marginBottom: 30}}>
           <Text style={{fontSize:15, flex:1}}>Tip amount</Text>
           <Text style={{textAlign:'left',flex:3}}>{this.state.tipAmount}</Text>
         </View>
 
-        <SegmentedControlTab style={{marginTop:100}}
-          values={this.segmentValues()}
-          segmentSelectedIndex={this.state.segmentSelectedIndex}
-          onTabPress= {index => this.handleSegmentChange(index)}
-          />
+        <View>
+          <SegmentedControlTab
+            values={this.segmentValues()}
+            selectedIndex={this.state.segmentSelectedIndex}
+            onTabPress= {index => this.handleSegmentChange(index)}
+            />
+        </View>
 
         <View style={{flexDirection:'column', marginTop:30}}>
           <Text style={styles.resultText}>
@@ -102,9 +104,8 @@ export default class Calculator extends Component {
       </View>
     );
   }
-
 }
-//module.exports = Cal
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -120,6 +121,14 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontWeight:'bold',
   },
+  textBillInput:{
+    flex:3,
+    padding: 5,
+    height: 30,
+    borderColor: '#cccccc',
+    color:'black',
+    borderWidth: 2,
+  },
   resultText:{
     textAlign:'left',
     color: '#333333',
@@ -133,13 +142,5 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     fontSize: 16,
   },
-  textBillInput:{
-    flex:3,
-    padding: 5,
-    height: 30,
-    borderColor: '#cccccc',
-    color:'black',
-    borderWidth: 2,
-  }
 });
 
