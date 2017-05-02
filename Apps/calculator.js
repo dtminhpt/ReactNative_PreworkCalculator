@@ -68,6 +68,7 @@ export default class Calculator extends Component {
             onChangeText={(billAmount) => this.handleBillAmountChange(billAmount)}
             keyboardType='numeric'
             style={styles.textBillInput}
+            autoFocus={true}
           />
         </View>
 
